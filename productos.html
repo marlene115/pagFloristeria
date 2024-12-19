@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLORISTERIA MARLEN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.jpg" alt=" ">
+                <h1>Marlen</h1>
+            </a>
+        </div>
+        <nav class="menu">
+            <a href="#" class="boton" onclick="accion()"><i class="fa fa-bars"></i></a>
+            <ul>
+                <li><a class="nav-enlace desaparece" href="index.html">Inicio</a></li>
+                <li><a class="nav-enlace desaparece" href="nosotros.html">Nosotros</a></li>
+                <li><a class="nav-enlace desaparece" href="productos.html">Productos</a></li>
+                <li><a class="nav-enlace desaparece" href="contacto.html">Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="slider">
+
+    </div>
+    <div class="informacion_ppa1">
+        <h1>Floristeria Marlen</h1>
+        <p>Su mejor eleccion en Arreglos Florales y decoracion de eventos especiales.</p>
+    </div>
+    <section class="gallery">
+        <h2>Para esa persona tan Especial</h2>
+        <div class="gallery-item">
+            <img src="img/images2.jpg" alt="Descripción de la imagen 1" class="thumbnail">
+        </div>
+        <div class="gallery-item">
+            <img src="img/images 15.jpg" alt="Descripción de la imagen 2" class="thumbnail">
+        </div>
+        <div class="gallery-item">
+            <img src="img/svalentin.jpg" alt="Descripción de la imagen 3" class="thumbnail">
+        </div>
+        <div class="gallery-item">
+            <img src="img/mixto.jpg" alt="Descripción de la imagen 4" class="thumbnail">
+        </div>
+        <div class="gallery-item">
+            <img src="img/images 21.jpg" alt="Descripción de la imagen 5" class="thumbnail">
+        </div>
+        <div class="gallery-item">
+            <img src="img/images.jpg" alt="Descripción de la imagen 6" class="thumbnail">
+        </div>
+        <div class="gallery-item">
+            <img src="img/images22.jpg" alt="Descripción de la imagen 7" class="thumbnail">
+        </div>
+        <div class="gallery-item">
+            <img src="img/images6.jpg" alt="Descripción de la imagen 8" class="thumbnail">
+        </div>
+        <div id="lightbox" class="lightbox">
+            <span class="close">&times;</span>
+            <img id="lightbox-image" src="" alt="Imagen ampliada">
+        </div>
+    </section>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+        .gallery {
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery-item {
+    display: inline-block;
+    margin: 10px;
+}
+
+.thumbnail {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+     transition: transform 0.6s ease, box-shadow 0.3s ease;
+    transform-origin: center; /* Define el punto de rotación */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+}
+
+.thumbnail:hover {
+    transform: rotateY(20deg) rotateX(10deg) scale(1.1); /* Efecto 3D */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    transition: transform 0.3s ease;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.lightbox img:hover {
+    transform: scale(1.1); /* Zoom suave dentro del lightbox */
+}
+       
+        
+        .slider {
+    height: 300px;
+    background: url('img/producto.jpg') no-repeat center center/cover;
+}
+
+/* Sección de información */
+.informacion_ppa1 {
+    text-align: center;
+    padding: 20px;
+    background-color: #ecf0f1;
+}
+
+.informacion_ppa1 h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Productos */
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.anuncios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+                const thumbnails = document.querySelectorAll(".thumbnail");
+                const lightbox = document.getElementById("lightbox");
+                const lightboxImage = document.getElementById("lightbox-image");
+                const close = document.querySelector(".lightbox .close");
+
+                thumbnails.forEach(thumbnail => {
+                    thumbnail.addEventListener("click", () => {
+                        lightboxImage.src = thumbnail.src;
+                        lightbox.style.display = "flex";
+                    });
+                });
+
+                close.addEventListener("click", () => {
+                    lightbox.style.display = "none";
+                });
+
+                lightbox.addEventListener("click", (e) => {
+                    if (e.target === lightbox) {
+                        lightbox.style.display = "none";
+                    }
+                });
+            });
+    </script>
+
+
+<footer>
+    <div class="info-copy">
+        <p>creado por Marlene Marca</p>
+        <p>copyright Marlene&copy;</p>
+
+    </div>
+    <div class="redes-sociales">
+        <a target="_blank" href="https://www.facebook.com" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a target="_blank" href="https://www.twitter.com" class="facebook"><i class="fa fa-twiter"></i></a>
+        <a target="_blank" href="https://www.instagram.com" class="facebook"><i class="fa fa-instagram"></i></a>
+        <a target="_blank" href="https://www.whatsapp.com" class="facebook"><i class="fa fa-whatsapp"></i></a>
+
+
+    </div>
+</footer>
+<div class="barra-lateral">
+    <a target="_blank" href="https://www.facebook.com" class="facebook"><i class="fa fa-facebook"></i></a>
+    <a target="_blank" href="https://www.twiter.com" class="facebook"><i class="fa fa-twiter"></i></a>
+    <a target="_blank" href="https://www.instagram.com" class="facebook"><i class="fa fa-instagram"></i></a>
+    <a target="_blank" href="https://www.whatsapp.com" class="facebook"><i class="fa fa-whatsapp"></i></a>
+
+</div>
+    
+    
+    
+    
+    
+    </body>
